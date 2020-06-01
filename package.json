@@ -1,0 +1,13 @@
+{
+  "name": "lab2.x",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Dmytrii Puzyr",
+  "license": "ISC",
+  "dependencies": {
+    "fft-js": "0.0.12",
+    "plotly": "^1.0.6"
+  }
+}
