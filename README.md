@@ -6,6 +6,14 @@
 2. Install dependencies: `$ yarn install` (`$ npm install`, if you use npm)
 3. Execute with `$ yarn start` (`$ npm start`, if you use npm)
 
+## DFT and FFT calculation time measurements
+
+```
+$ node src/index.js
+dft: 62.538ms
+fft: 52.192ms
+```
+
 ## Examples
 
 ### DFT

@@ -27,8 +27,13 @@ const x = signalGeneration(HARMONICS, MAX_FREQUENCY, COUNTINGS);
 
 const y = linespace(0, COUNTINGS, 1);
 
+console.time("dft");
 const dft = dftGenerator(x);
+console.timeEnd("dft");
+
+console.time("fft");
 const ffts = fftGenerator(x);
+console.timeEnd("fft");
 
 graph(dft, y, "dft");
 graph(ffts, y, "fft");
@@ -116,7 +121,7 @@ function fftGenerator(x) {
   new Array(N / 2).fill(0);
   let fimage1 = new Array(N).fill(0);
   let f = new Array(N).fill(0);
-  const start = new Date().getTime();
+  // const start = new Date().getTime();
   for (let p = 0; p < halfN; p++) {
     for (let m = 0; m < halfN; m++) {
       freal11[p] += x[2 * m + 1] * Math.cos(((4 * Math.PI) / N) * p * m);
@@ -143,15 +148,15 @@ function fftGenerator(x) {
       f[p + N / 2] = (freal1[p + N / 2] ** 2 + fimage1[p + N / 2] ** 2) ** 0.5;
     }
   }
-  const end = new Date().getTime();
-  console.log(`Time in single: ${end - start}`);
+  // const end = new Date().getTime();
+  // console.log(`Time in single: ${end - start}`);
 
-  const startUtil = new Date().getTime();
-  const magnitudes = fftUtil.fftMag(fft(x));
-  const endUtil = new Date().getTime();
+  // const startUtil = new Date().getTime();
+  // const magnitudes = fftUtil.fftMag(fft(x));
+  // const endUtil = new Date().getTime();
 
-  console.log(`Time in util: ${endUtil - startUtil}`);
-  console.log(magnitudes);
+  // console.log(`Time in util: ${endUtil - startUtil}`);
+  // console.log(magnitudes);
 
   return f;
 }
